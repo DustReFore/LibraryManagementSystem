@@ -4,16 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a th:href="@{/books}">Books</a></li>
-        <li><a th:href="@{/authors}">Authors</a></li>
-        <li><a th:href="@{/readers}">Readers</a></li>
-        <li><a th:href="@{/orders}">Orders</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Книги</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Авторы</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Читатели</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Заказы</a></li>
+            </ul>
+            <a class="btn btn-outline-dark" href="#">Войти</a>
+        </div>
+    </div>
 </nav>
+
+<header class="text-center my-5">
+    <h1>Система управления книгами</h1>
+    <p class="lead">Управляйте книгами, авторами и читателями в одном месте</p>
+    <a class="btn btn-primary btn-lg" th:href="@{/books}">Перейти к каталогу книг</a>
+</header>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Каталог книг</h5>
+                    <p class="card-text">Просмотр, добавление и редактирование книг.</p>
+                    <a th:href="@{/books}" class="btn btn-primary">Открыть</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Читатели</h5>
+                    <p class="card-text">Управление зарегистрированными читателями.</p>
+                    <a th:href="@{/readers}" class="btn btn-primary">Открыть</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Заказы</h5>
+                    <p class="card-text">Учёт выдачи и возврата книг.</p>
+                    <a th:href="@{/orders}" class="btn btn-primary">Открыть</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 </body>
 </html>
