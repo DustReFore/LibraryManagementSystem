@@ -1,48 +1,61 @@
 package com.example.first_project.controller;
 
+import com.example.first_project.model.Author;
 import com.example.first_project.model.Book;
-import com.example.first_project.model.Category;
+import com.example.first_project.service.LibraryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequestMapping("/books")
 public class BookController {
-    private List<Book> books =  new ArrayList<>();
+    private final LibraryService libraryService;
+
+    public BookController(LibraryService libraryService) {
+        this.libraryService = libraryService;
+    }
 
     @GetMapping
     public String listBooks(Model model) {
-        model.addAttribute("books", books);
+        model.addAttribute("books", libraryService.getBooks());
         return "books";
     }
 
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("authors", libraryService.getAuthors());
         return "book_form";
     }
 
     @PostMapping("/add")
     public String addBook(@ModelAttribute("book") Book book) {
-        book.setId(books.size() + 1);
-        books.add(book);
+        // найти автора по id
+        Author author = libraryService.getAuthors()
+                .stream()
+                .filter(a -> a.getId() == book.getAuthor().getId())
+                .findFirst()
+                .orElse(null);
+
+        book.setAuthor(author);
+        book.setId(libraryService.getBooks().size() + 1);
+        libraryService.addBook(book);
         return "redirect:/books";
     }
 
+
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable int id, Model model) {
-        Book book = books.stream().filter(b -> b.getId() == id).findFirst().orElse(null);
+        Book book = libraryService.getBooks().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
         model.addAttribute("book", book);
+        model.addAttribute("authors", libraryService.getAuthors());
         return "book_form";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable int id) {
-        books.removeIf(b -> b.getId() == id);
+        libraryService.getBooks().removeIf(b -> b.getId() == id);
         return "redirect:/books";
     }
 }
