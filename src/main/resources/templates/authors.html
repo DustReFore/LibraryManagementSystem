@@ -34,6 +34,7 @@
                 <th>Год рождения</th>
                 <th>Страна</th>
                 <th>Книги</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -44,10 +45,12 @@
                 <td th:text="${author.year}"></td>
                 <td th:text="${author.country}"></td>
                 <td>
-                    <ul>
-                        <li th:each="book : ${author.books}" th:text="${book.title}"></li>
-                    </ul>
+                    <span th:each="book, iterStat : ${author.books}">
+                        <span th:text="${book.title}"></span>
+                        <span th:if="${!iterStat.last}">, </span>
+                    </span>
                 </td>
+
                 <td>
                     <a class="btn btn-sm btn-warning" th:href="@{'/authors/edit/' + ${author.id}}">Редактировать</a>
                     <a class="btn btn-sm btn-danger" th:href="@{'/authors/delete/' + ${author.id}}">Удалить</a>

@@ -26,6 +26,9 @@ public class BookController {
     public String showAddForm(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("authors", libraryService.getAuthors());
+        model.addAttribute("formAction", "/books/add");
+        model.addAttribute("formTitle", "Добавить книгу");
+        model.addAttribute("submitText", "Сохранить книгу");
         return "book_form";
     }
 
@@ -50,6 +53,9 @@ public class BookController {
         Book book = libraryService.getBooks().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
         model.addAttribute("book", book);
         model.addAttribute("authors", libraryService.getAuthors());
+        model.addAttribute("formAction", "/books/edit/" + id);
+        model.addAttribute("formTitle", "Редактировать книгу");
+        model.addAttribute("submitText", "Сохранить изменения");
         return "book_form";
     }
 

@@ -25,6 +25,9 @@ public class AuthorController {
     @GetMapping("/add")
     public String showAddAuthor(Model model) {
         model.addAttribute("author", new Author());
+        model.addAttribute("formAction", "/authors/add");
+        model.addAttribute("formTitle", "Добавить автора");
+        model.addAttribute("submitText", "Сохранить автора");
         return "author_form";
     }
 
@@ -40,6 +43,9 @@ public class AuthorController {
     public String showEditForm(@PathVariable int id, Model model) {
         Author author = libraryService.getAuthors().stream().filter(a -> a.getId() == id).findFirst().orElse(null);
         model.addAttribute("author", author);
+        model.addAttribute("formAction", "/authors/edit" + id);
+        model.addAttribute("formTitle", "Редактировать автора");
+        model.addAttribute("submitText", "Сохранить изменения");
         return "author_form";
     }
 
