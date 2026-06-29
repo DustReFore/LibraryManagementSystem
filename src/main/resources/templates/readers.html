@@ -32,6 +32,7 @@
             <th>Фамилия</th>
             <th>Год рождения</th>
             <th>Email</th>
+            <th>Заказы</th>
             <th>Действия</th>
         </tr>
         </thead>
@@ -42,6 +43,13 @@
             <td th:text="${reader.lastName}"></td>
             <td th:text="${reader.yearOfBirth}"></td>
             <td th:text="${reader.email}"></td>
+            <td th:with="readerOrders=${ordersByReader[reader.id]}">
+                <span th:if="${readerOrders == null or #lists.isEmpty(readerOrders)}">-</span>
+                <span th:each="order, iterStat : ${readerOrders}">
+                    <span th:text="${order.book != null ? order.book.title : '-'}"></span>
+                    <span th:if="${not iterStat.last}">, </span>
+                </span>
+            </td>
             <td>
                 <a class="btn btn-sm btn-warning" th:href="@{'/readers/edit/' + ${reader.id}}">Редактировать</a>
                 <a class="btn btn-sm btn-danger" th:href="@{'/readers/delete/' + ${reader.id}}">Удалить</a>

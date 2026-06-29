@@ -1,10 +1,15 @@
 package com.example.first_project.controller;
 
 import com.example.first_project.model.Reader;
+import com.example.first_project.model.Order;
 import com.example.first_project.service.LibraryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/readers")
@@ -17,7 +22,12 @@ public class ReaderController {
 
     @GetMapping()
     public String listReaders(Model model) {
+        Map<Integer, List<Order>> ordersByReader = libraryService.getOrders().stream()
+                .filter(order -> order.getReader() != null)
+                .collect(Collectors.groupingBy(order -> order.getReader().getId()));
+
         model.addAttribute("readers", libraryService.getReaders());
+        model.addAttribute("ordersByReader", ordersByReader);
         return "readers";
     }
 
