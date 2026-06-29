@@ -100,4 +100,10 @@ public class OrderController {
 
         return "redirect:/orders";
     }
+
+    @GetMapping("delete/{id}")
+    public String deleteOrder(@PathVariable int id) {
+        libraryService.getOrders().removeIf(o -> o.getId() == id);
+        return "redirect:/orders";
+    }
 }

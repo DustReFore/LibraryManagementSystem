@@ -47,7 +47,6 @@ public class BookController {
         return "redirect:/books";
     }
 
-
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable int id, Model model) {
         Book book = libraryService.getBooks().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
@@ -57,6 +56,21 @@ public class BookController {
         model.addAttribute("formTitle", "Редактировать книгу");
         model.addAttribute("submitText", "Сохранить изменения");
         return "book_form";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String editBook(@PathVariable int id, @ModelAttribute("book") Book book) {
+        Author author = libraryService.getAuthors()
+                .stream()
+                .filter(a -> a.getId() == book.getAuthor().getId())
+                .findFirst()
+                .orElse(null);
+
+        book.setAuthor(author);
+        book.setId(id);
+        libraryService.getBooks().removeIf(b -> b.getId() == id);
+        libraryService.addBook(book);
+        return "redirect:/books";
     }
 
     @GetMapping("/delete/{id}")
