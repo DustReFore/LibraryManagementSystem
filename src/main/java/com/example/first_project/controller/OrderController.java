@@ -35,8 +35,8 @@ public class OrderController {
         model.addAttribute("books", libraryService.getBooks());
         model.addAttribute("readers", libraryService.getReaders());
         model.addAttribute("formAction", "/orders/add");
-        model.addAttribute("formTitle", "Добавить заказ");
-        model.addAttribute("submitText", "Сохранить заказ");
+        model.addAttribute("formTitle", "Add order");
+        model.addAttribute("submitText", "Save order");
         return "order_form";
     }
 
@@ -73,8 +73,8 @@ public class OrderController {
         model.addAttribute("books", libraryService.getBooks());
         model.addAttribute("readers", libraryService.getReaders());
         model.addAttribute("formAction", "/orders/edit/" + id);
-        model.addAttribute("formTitle", "Редактировать заказ");
-        model.addAttribute("submitText", "Сохранить изменения");
+        model.addAttribute("formTitle", "Edit order");
+        model.addAttribute("submitText", "Save changes");
         return "order_form";
     }
 

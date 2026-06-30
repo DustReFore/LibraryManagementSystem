@@ -36,8 +36,8 @@ public class ReaderController {
     public String showAddForm(Model model) {
         model.addAttribute("reader", new Reader());
         model.addAttribute("formAction", "/readers/add");
-        model.addAttribute("formTitle", "Добавить читателя");
-        model.addAttribute("submitText", "Сохранить читателя");
+        model.addAttribute("formTitle", "Add reader");
+        model.addAttribute("submitText", "Save reader");
         return "reader_form";
     }
 
@@ -54,8 +54,8 @@ public class ReaderController {
         Reader reader = libraryService.getReaders().stream().filter(r -> r.getId() == id).findFirst().orElse(null);
         model.addAttribute("reader", reader);
         model.addAttribute("formAction", "/readers/edit/" + id);
-        model.addAttribute("formTitle", "Редактировать читателя");
-        model.addAttribute("submitText", "Сохранить изменения");
+        model.addAttribute("formTitle", "Edit reader");
+        model.addAttribute("submitText", "Save changes");
         return "reader_form";
     }
 

@@ -10,14 +10,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse">
-            <a class="navbar-brand" th:href="@{/}">Главная</a>
+            <a class="navbar-brand" th:href="@{/}">Home</a>
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Авторы</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Читатели</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Заказы</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Books</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Authors</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Readers</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Orders</a></li>
             </ul>
-            <a class="btn btn-outline-dark" href="#">Войти</a>
+            <a class="btn btn-outline-dark" href="#">Login</a>
         </div>
     </div>
 </nav>
@@ -28,27 +28,27 @@
     <form th:action="@{${formAction}}" th:object="${author}" method="post" class="mt-4">
 
         <div class="mb-3">
-            <label for="firstName" class="form-label">Имя</label>
+            <label for="firstName" class="form-label">First Name</label>
             <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
         </div>
 
         <div class="mb-3">
-            <label for="lastName" class="form-label">Фамилия</label>
+            <label for="lastName" class="form-label">Last Name</label>
             <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
         </div>
 
         <div class="mb-3">
-            <label for="year" class="form-label">Год рождения</label>
+            <label for="year" class="form-label">Year of Birth</label>
             <input type="number" class="form-control" id="year" th:field="*{year}" required>
         </div>
 
         <div class="mb-3">
-            <label for="country" class="form-label">Страна</label>
+            <label for="country" class="form-label">Country</label>
             <input type="text" class="form-control" id="country" th:field="*{country}" required>
         </div>
 
         <button type="submit" class="btn btn-success" th:text="${submitText}"></button>
-        <a th:href="@{/authors}" class="btn btn-secondary">Отмена</a>
+        <a th:href="@{/authors}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 </body>

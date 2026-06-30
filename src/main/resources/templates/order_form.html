@@ -10,14 +10,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse">
-            <a class="navbar-brand" th:href="@{/}">Главная</a>
+            <a class="navbar-brand" th:href="@{/}">Home</a>
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Авторы</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Читатели</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Заказы</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Books</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Authors</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Readers</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Orders</a></li>
             </ul>
-            <a class="btn btn-outline-dark" href="#">Войти</a>
+            <a class="btn btn-outline-dark" href="#">Login</a>
         </div>
     </div>
 </nav>
@@ -28,7 +28,7 @@
     <form th:action="@{${formAction}}" th:object="${order}" method="post" class="mt-4">
 
         <div class="mb-3">
-            <label class="form-label">Книга</label>
+            <label class="form-label">Book</label>
             <select class="form-select" th:field="*{book.id}" required>
                 <option th:each="book : ${books}"
                         th:value="${book.id}"
@@ -38,7 +38,7 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Читатель</label>
+            <label class="form-label">Reader</label>
             <select class="form-select" th:field="*{reader.id}" required>
                 <option th:each="reader : ${readers}"
                         th:value="${reader.id}"
@@ -48,17 +48,17 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Дата выдачи</label>
+            <label class="form-label">Date Issued</label>
             <input type="date" class="form-control" th:field="*{dateIssued}">
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Дата возврата</label>
+            <label class="form-label">Date Returned</label>
             <input type="date" class="form-control" th:field="*{dateReturned}">
         </div>
 
         <button type="submit" class="btn btn-success" th:text="${submitText}"></button>
-        <a th:href="@{/orders}" class="btn btn-secondary">Отмена</a>
+        <a th:href="@{/orders}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 

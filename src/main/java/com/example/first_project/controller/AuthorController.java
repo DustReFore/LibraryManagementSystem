@@ -26,8 +26,8 @@ public class AuthorController {
     public String showAddAuthor(Model model) {
         model.addAttribute("author", new Author());
         model.addAttribute("formAction", "/authors/add");
-        model.addAttribute("formTitle", "Добавить автора");
-        model.addAttribute("submitText", "Сохранить автора");
+        model.addAttribute("formTitle", "Add author");
+        model.addAttribute("submitText", "Save author");
         return "author_form";
     }
 
@@ -44,8 +44,8 @@ public class AuthorController {
         Author author = libraryService.getAuthors().stream().filter(a -> a.getId() == id).findFirst().orElse(null);
         model.addAttribute("author", author);
         model.addAttribute("formAction", "/authors/edit/" + id);
-        model.addAttribute("formTitle", "Редактировать автора");
-        model.addAttribute("submitText", "Сохранить изменения");
+        model.addAttribute("formTitle", "Edit author");
+        model.addAttribute("submitText", "Save changes");
         return "author_form";
     }
 

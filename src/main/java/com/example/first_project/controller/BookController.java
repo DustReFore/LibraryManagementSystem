@@ -27,8 +27,8 @@ public class BookController {
         model.addAttribute("book", new Book());
         model.addAttribute("authors", libraryService.getAuthors());
         model.addAttribute("formAction", "/books/add");
-        model.addAttribute("formTitle", "Добавить книгу");
-        model.addAttribute("submitText", "Сохранить книгу");
+        model.addAttribute("formTitle", "Add book");
+        model.addAttribute("submitText", "Save book");
         return "book_form";
     }
 
@@ -53,8 +53,8 @@ public class BookController {
         model.addAttribute("book", book);
         model.addAttribute("authors", libraryService.getAuthors());
         model.addAttribute("formAction", "/books/edit/" + id);
-        model.addAttribute("formTitle", "Редактировать книгу");
-        model.addAttribute("submitText", "Сохранить изменения");
+        model.addAttribute("formTitle", "Edit book");
+        model.addAttribute("submitText", "Save changes");
         return "book_form";
     }
 

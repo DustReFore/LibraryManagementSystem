@@ -10,22 +10,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse">
-            <a class="navbar-brand" th:href="@{/}">Главная</a>
+            <a class="navbar-brand" th:href="@{/}">Home</a>
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Авторы</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Читатели</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Заказы</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Books</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Authors</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Readers</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Orders</a></li>
             </ul>
-            <a class="btn btn-outline-dark" href="#">Войти</a>
+            <a class="btn btn-outline-dark" href="#">Login</a>
         </div>
     </div>
 </nav>
 
 <header class="text-center my-5">
-    <h1>Система управления книгами</h1>
-    <p class="lead">Управляйте книгами, авторами и читателями в одном месте</p>
-    <a class="btn btn-primary btn-lg" th:href="@{/books}">Перейти к каталогу книг</a>
+    <h1>Library Management System</h1>
+    <p class="lead">Manage books, authors, and readers in one place</p>
+    <a class="btn btn-primary btn-lg" th:href="@{/books}">Go to Book Catalog</a>
 </header>
 
 <div class="container my-5">
@@ -33,27 +33,27 @@
         <div class="col-md-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Каталог книг</h5>
-                    <p class="card-text">Просмотр, добавление и редактирование книг.</p>
-                    <a th:href="@{/books}" class="btn btn-primary">Открыть</a>
+                    <h5 class="card-title">Book Catalog</h5>
+                    <p class="card-text">View, add, and edit books.</p>
+                    <a th:href="@{/books}" class="btn btn-primary">Open</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Авторы</h5>
-                    <p class="card-text">Управление зарегистрированными авторами.</p>
-                    <a th:href="@{/authors}" class="btn btn-primary">Открыть</a>
+                    <h5 class="card-title">Authors</h5>
+                    <p class="card-text">Manage registered authors.</p>
+                    <a th:href="@{/authors}" class="btn btn-primary">Open</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Читатели</h5>
-                    <p class="card-text">Управление зарегистрированными читателями.</p>
-                    <a th:href="@{/readers}" class="btn btn-primary">Открыть</a>
+                    <h5 class="card-title">Readers</h5>
+                    <p class="card-text">Manage registered readers.</p>
+                    <a th:href="@{/readers}" class="btn btn-primary">Open</a>
                 </div>
             </div>
         </div>

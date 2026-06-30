@@ -10,30 +10,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse">
-            <a class="navbar-brand" th:href="@{/}">Главная</a>
+            <a class="navbar-brand" th:href="@{/}">Home</a>
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Авторы</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Читатели</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Заказы</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Books</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/authors}">Authors</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/readers}">Readers</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/orders}">Orders</a></li>
             </ul>
-            <a class="btn btn-outline-dark" href="#">Войти</a>
+            <a class="btn btn-outline-dark" href="#">Login</a>
         </div>
     </div>
 </nav>
 <div class="container my-5">
-    <h1 class="mb-4">Список читателей</h1>
-    <a class="btn btn-primary mb-3" th:href="@{/readers/add}">Добавить читателя</a>
+    <h1 class="mb-4">Reader List</h1>
+    <a class="btn btn-primary mb-3" th:href="@{/readers/add}">Add Reader</a>
     <table class="table table-striped table-hover">
         <thead class="table-dark">
         <tr>
             <th>ID</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Год рождения</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Year of Birth</th>
             <th>Email</th>
-            <th>Заказы</th>
-            <th>Действия</th>
+            <th>Orders</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -51,8 +51,8 @@
                 </span>
             </td>
             <td>
-                <a class="btn btn-sm btn-warning" th:href="@{'/readers/edit/' + ${reader.id}}">Редактировать</a>
-                <a class="btn btn-sm btn-danger" th:href="@{'/readers/delete/' + ${reader.id}}">Удалить</a>
+                <a class="btn btn-sm btn-warning" th:href="@{'/readers/edit/' + ${reader.id}}">Edit</a>
+                <a class="btn btn-sm btn-danger" th:href="@{'/readers/delete/' + ${reader.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
